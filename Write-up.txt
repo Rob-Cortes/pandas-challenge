@@ -1,0 +1,11 @@
+This report provides an analysis of data on high schools and student test results in a given school district. 
+Specifically, the report segments reading and math scores along different criteria in order to look for trends. 
+By comparing the performance of different school types, budgets, sizes, we can discover the most salient features
+of successful schools. 
+
+The report calculated the average math and reading scores, as well pass/fail rates in math and readering, across the 15 different
+high schools in the sample. While there is low variability in the average test scores of the schools (ranges of approximately 7 percentage points in math and 4 percentage points in reading), overall passing rates vary widely. The best-performing school, Cabrera High School,
+saw 91.33% of its students pass both math and reading. Only 52.99% of students from the worst-performing school, Rodriguez High School,
+did so, despite average math & reading scores that were comparable with Cabrera's. Rodriguez' average math score was only 6.2 percentage points lower than Cabrera's; its average average reading score only 3.2 percentage points lower. The relative variability of passing rates versus average test scores indicates that the less successful schools have a higher dispersion among their student bodies. Students at more successful schools, on the other hand, are more tightly clustered around the average.  
+
+The report also found that overall passing rates much lower at district schools, as opposed to charter schools. Large school, similarly, had much lower passing rates than small and medium schools. These findings appear to confirm the above finding that school success is hampered when the study body is very large and exhibits high variability. A very surprising finding, however, was that overall passing rates decreased as spending per capita increased, with a 53.5% passing rate for the $645-$680 spending range and a 90.4% passing rate for the <$585 spending range. This would appear to indicate that school budgets have, if anything, a negative impact on school success. Further analysis is needed, however, to better understand this counter-intuitive result.
