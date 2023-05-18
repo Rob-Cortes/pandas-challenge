@@ -3,113 +3,50 @@
 In this exercise, we create and manipulate Pandas DataFrames to analyze school and standardized test data.
 
 ## Set-Up
+After importing Pandas, we store the school data in the form of a Pandas DataFrame. The raw data is found in CSV format in the 'Resources' folder.
 
-Using Pandas and Jupyter Notebook, create a report that includes the following data. Your report must include a written description of at least two observable trends based on the data.
-
-Hint: Check out the sample solution called PyCitySchools_starter.ipynb located in the .zip file to review the desired format for this assignment.
-
-District Summary
-Perform the necessary calculations and then create a high-level snapshot of the district's key metrics in a DataFrame.
-
-Include the following:
+## District Summary
+In this section, we create a high-level snapshot of the district's key metrics, including:
 
 Total number of unique schools
-
 Total students
-
 Total budget
-
 Average math score
-
 Average reading score
-
 % passing math (the percentage of students who passed math)
-
 % passing reading (the percentage of students who passed reading)
-
 % overall passing (the percentage of students who passed math AND reading)
 
-School Summary
-Perform the necessary calculations and then create a DataFrame that summarizes key metrics about each school.
-
-Include the following:
+## School Summary
+In this section, we summarize school performance with the following information:
 
 School name
-
 School type
-
 Total students
-
 Total school budget
-
 Per student budget
-
 Average math score
-
 Average reading score
-
 % passing math (the percentage of students who passed math)
-
 % passing reading (the percentage of students who passed reading)
-
 % overall passing (the percentage of students who passed math AND reading)
 
-Highest-Performing Schools (by % Overall Passing)
-Sort the schools by % Overall Passing in descending order and display the top 5 rows.
+We identify the highest-performing schools by sorting the schools according to % Overall Passing and displaying the top 5 rows. These results are saved in a DataFrame called "top_schools". We repeat this process for the worst-performing schools. 
 
-Save the results in a DataFrame called "top_schools".
+Next, we create DataFrames that list the average math and reading scores for students of each grade level (9th, 10th, 11th, 12th) at each school.
 
-Lowest-Performing Schools (by % Overall Passing)
-Sort the schools by % Overall Passing in ascending order and display the top 5 rows.
+## Performance Metrics vs. School Spending, Size, and Type
+To assess performance across different school metrics, we make use of pd.cut().
 
-Save the results in a DataFrame called "bottom_schools".
+First, we create a table that breaks down school performance based on average spending ranges (per student). We use pd.cut to categorize spending in terms of ranges (aka bins). Now that we have spending bins, we create a DataFrame with test scores and passing rates for each bin. 
 
-Math Scores by Grade
-Perform the necessary calculations to create a DataFrame that lists the average math score for students of each grade level (9th, 10th, 11th, 12th) at each school.
+![image](https://github.com/Rob-Cortes/pandas-challenge/assets/124944383/e2425663-496f-4f30-ab64-76d9b440aca0)
 
-Reading Scores by Grade
-Create a DataFrame that lists the average reading score for students of each grade level (9th, 10th, 11th, 12th) at each school.
+This process is repeated for school size (i.e., number of students).
 
-Scores by School Spending
-Create a table that breaks down school performance based on average spending ranges (per student).
+![image](https://github.com/Rob-Cortes/pandas-challenge/assets/124944383/eb0f7dbe-5c37-4f5b-baed-f45eff9d32f4)
 
-Use the code provided below to create four bins with reasonable cutoff values to group school spending.
+Lastly, we creete a final DataFrame that shows school performance based on the type of school (charter or district). This DataFrame does not require the use of pd.cut(). 
 
-spending_bins = [0, 585, 630, 645, 680]
-labels = ["<$585", "$585-630", "$630-645", "$645-680"]
-Use pd.cut to categorize spending based on the bins.
+![image](https://github.com/Rob-Cortes/pandas-challenge/assets/124944383/85fed634-3a34-41f4-9ed3-e041fe9ce807)
 
-Use the following code to then calculate mean scores per spending range.
-
-spending_math_scores = school_spending_df.groupby(["Spending Ranges (Per Student)"])["Average Math Score"].mean()
-spending_reading_scores = school_spending_df.groupby(["Spending Ranges (Per Student)"])["Average Reading Score"].mean()
-spending_passing_math = school_spending_df.groupby(["Spending Ranges (Per Student)"])["% Passing Math"].mean()
-spending_passing_reading = school_spending_df.groupby(["Spending Ranges (Per Student)"])["% Passing Reading"].mean()
-overall_passing_spending = school_spending_df.groupby(["Spending Ranges (Per Student)"])["% Overall Passing"].mean()
-Use the scores above to create a DataFrame called spending_summary.
-
-Include the following metrics in the table:
-
-Average math score
-
-Average reading score
-
-% passing math (the percentage of students who passed math)
-
-% passing reading (the percentage of students who passed reading)
-
-% overall passing (the percentage of students who passed math AND reading)
-
-Scores by School Size
-Use the following code to bin the per_school_summary.
-
-size_bins = [0, 1000, 2000, 5000]
-labels = ["Small (<1000)", "Medium (1000-2000)", "Large (2000-5000)"]
-Use pd.cut on the "Total Students" column of the per_school_summary DataFrame.
-
-Create a DataFrame called size_summary that breaks down school performance based on school size (small, medium, or large).
-
-Scores by School Type
-Use the per_school_summary DataFrame from the previous step to create a new DataFrame called type_summary.
-
-This new DataFrame should show school performance based on the "School Type".
